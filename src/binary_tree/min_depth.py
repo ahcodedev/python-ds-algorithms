@@ -27,14 +27,14 @@ from collections import deque
 from src.binary_tree.tree_node import TreeNode
 
 
-def min_depth(root: TreeNode) -> int:
+def min_depth(root: TreeNode | None) -> int:
     """Recursively descend, at each node skipping to whichever child subtree exists when only one does."""
     if not root:
         return 0
 
-    if not root.left:
+    if not root.left and root.right:
         return min_depth(root.right) + 1
-    if not root.right:
+    if not root.right and root.left:
         return min_depth(root.left) + 1
 
     return min(min_depth(root.left), min_depth(root.right)) + 1

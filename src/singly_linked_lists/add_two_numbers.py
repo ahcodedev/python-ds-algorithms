@@ -21,13 +21,15 @@ def add_two_numbers(
     dummy_node = SinglyLinkedListNode(0)
     result = dummy_node
     carry = 0
+
     while node1 or node2:
         val1 = 0
         val2 = 0
-        if node1:
+
+        if node1 and node1.data:
             val1 = node1.data
             node1 = node1.next
-        if node2:
+        if node2 and node2.data:
             val2 = node2.data
             node2 = node2.next
 

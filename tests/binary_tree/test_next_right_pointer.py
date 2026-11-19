@@ -7,6 +7,9 @@ def test_next_right_pointer():
     tree.right = Node(3)
 
     processed_tree = next_right_pointer(tree)
+    assert processed_tree
     assert not processed_tree.next
+    assert processed_tree.left
     assert processed_tree.left.next == processed_tree.right
+    assert processed_tree.right
     assert not processed_tree.right.next

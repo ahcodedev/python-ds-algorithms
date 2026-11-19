@@ -84,7 +84,7 @@ def test_insert_out_of_bounds(index):
 
 def test_remove_empty():
     linked_list = SinglyLinkedList()
-    assert not linked_list.remove(0)
+    assert linked_list.remove(0) is None
 
 
 def test_remove():

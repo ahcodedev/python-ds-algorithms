@@ -38,7 +38,7 @@ def postorder_traversal_recursive(root: TreeNode) -> list[int]:
     return values
 
 
-def postorder_traversal_iterative(root: TreeNode) -> list[int]:
+def postorder_traversal_iterative(root: TreeNode | None) -> list[int]:
     """Traverse iteratively with an explicit stack, visiting a node only after both children are handled."""
     values = []
     stack = []
@@ -52,10 +52,10 @@ def postorder_traversal_iterative(root: TreeNode) -> list[int]:
 
         root = stack.pop()
 
-        if stack and root.right == stack[-1]:
+        if root and stack and root.right == stack[-1]:
             stack[-1] = root
             root = root.right
-        else:
+        elif root:
             values.append(root.val)
             root = None
 

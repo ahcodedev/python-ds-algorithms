@@ -22,7 +22,7 @@ def merge_two_lists(
     current_node = dummy_node
 
     while node1 and node2:
-        if node1.data <= node2.data:
+        if node1.data and node1.data <= node2.data:
             current_node.next = node1
             node1 = node1.next
         else:

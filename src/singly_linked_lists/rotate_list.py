@@ -23,11 +23,16 @@ def rotate_list(head: SinglyLinkedListNode | None, amount: int) -> SinglyLinkedL
         number += 1
         current = current.next
     current.next = head
+
     current = head
 
     for _ in range((number - amount) % number - 1):
-        current = current.next
+        if current:
+            current = current.next
 
-    new_head = current.next
-    current.next = None
+    new_head = None
+
+    if current:
+        new_head = current.next
+        current.next = None
     return new_head

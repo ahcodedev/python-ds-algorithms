@@ -14,13 +14,14 @@ def largest_number_at_least_twice_of_others(nums: list[int]) -> int:
     :param nums: array of numbers
     :return: index of number, -1 if none exists
     """
-    largest = None
+    if not nums:
+        return -1
+
+    largest = 0
     next_largest = None
 
-    for idx, num in enumerate(nums):
-        if largest is None:
-            largest = idx
-            continue
+    for idx in range(1, len(nums)):
+        num = nums[idx]
         if num > nums[largest]:
             next_largest = largest
             largest = idx

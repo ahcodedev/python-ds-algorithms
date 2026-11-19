@@ -29,7 +29,8 @@ class SinglyLinkedList[T]:
         node = self._head.next
 
         while node:
-            values.append(node.data)
+            if node.data:
+                values.append(node.data)
             node = node.next
 
         return values
@@ -66,6 +67,7 @@ class SinglyLinkedList[T]:
         node = SinglyLinkedListNode(data)
         current_node = self._head
         count = 0
+
         while current_node:
             if count == index:
                 next_node = current_node.next

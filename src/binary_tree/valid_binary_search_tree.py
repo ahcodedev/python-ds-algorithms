@@ -1,7 +1,7 @@
 from src.binary_tree.tree_node import TreeNode
 
 
-def valid_bst(root: TreeNode, min_value=float("-inf"), max_value=float("inf")) -> bool:
+def valid_bst(root: TreeNode | None, min_value=float("-inf"), max_value=float("inf")) -> bool:
     """Valid Binary Search Tree.
 
     Given a binary tree, determine if it is a valid binary search tree (BST).

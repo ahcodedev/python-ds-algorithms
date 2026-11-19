@@ -1,3 +1,11 @@
+class MapSumNode:
+    """A single node in the MapSum trie, storing a value and its child prefix nodes."""
+
+    def __init__(self, value: int = 0):
+        self.value: int = value
+        self.nodes: dict[str, MapSumNode] = {}
+
+
 class MapSum:
     """Map Sum.
 
@@ -19,15 +27,14 @@ class MapSum:
         self.value = 0
         self.head: MapSumNode = MapSumNode()
 
-    def insert(self, key: str, val: int) -> None:
+    def insert(self, key: str, val: int):
         """Insert key into the trie, one node per prefix, and set the leaf's value."""
+        if self.head is None:
+            return
         current_node = self.head
+
         for index in range(1, len(key) + 1):
-            if key[:index] in current_node.nodes:
-                current_node = current_node.nodes.get(key[:index])
-            else:
-                current_node.nodes.setdefault(key[:index], MapSumNode())
-                current_node = current_node.nodes.get(key[:index])
+            current_node = current_node.nodes.setdefault(key[:index], MapSumNode())
         current_node.value = val
 
     def sum(self, prefix: str) -> int:
@@ -36,7 +43,7 @@ class MapSum:
         # Find target node
         for index in range(1, len(prefix) + 1):
             if prefix[:index] in current_node.nodes:
-                current_node = current_node.nodes.get(prefix[:index])
+                current_node = current_node.nodes[prefix[:index]]
             else:
                 return 0
 
@@ -53,11 +60,3 @@ class MapSum:
         for node in parent_node.nodes:
             total += self.__recursive_sum(parent_node.nodes.get(node))
         return total
-
-
-class MapSumNode:
-    """A single node in the MapSum trie, storing a value and its child prefix nodes."""
-
-    def __init__(self, value: int = 0):
-        self.value = value
-        self.nodes: dict[str:MapSumNode] = {}

@@ -6,5 +6,7 @@ def test_find_mode():
     tree = get_binary_tree()
     assert sorted(find_mode(tree)) == [1, 2, 3, 4, 5]
 
+    assert tree.left
+    assert tree.left.right
     tree.left.right.left = TreeNode(5)
     assert find_mode(tree) == [5]

@@ -11,7 +11,7 @@ def valid_word_abbreviation(word: str, abbr: str) -> bool:
     Note: assume the word contains only lowercase letters, and the abbreviation contains only lowercase letters
     and digits.
 
-    Example: `word = "internationalization"`, `abbr = "i12iz4n"` -> `True`
+    Example: `word = "internationalization"`, `abbr = "i4national6n"` -> `True`
     Example: `word = "apple"`, `abbr = "a2e"` -> `False`
 
     Walk the abbreviation, matching literal letters against word and skipping runs per numeric groups.

@@ -50,7 +50,7 @@ def get_list_values(head):
     return values
 
 
-def get_cyclic_list_values[T](head: SinglyLinkedListNode[T]):
+def get_cyclic_list_values[T](head: SinglyLinkedListNode[T] | None):
     if not head:
         return []
 
