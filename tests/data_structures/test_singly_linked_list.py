@@ -1,3 +1,5 @@
+import pytest
+
 from src.data_structures.singly_linked_list import SinglyLinkedList
 
 EMPTY_LIST = SinglyLinkedList()
@@ -70,6 +72,14 @@ def test_insert_tail():
     linked_list.insert(22, 3)
     assert linked_list.size() == 4
     assert linked_list.get(3) == 22
+
+
+@pytest.mark.parametrize("index", [4, 10, -1])
+def test_insert_out_of_bounds(index):
+    linked_list = get_multi_node_list()
+    with pytest.raises(IndexError):
+        linked_list.insert(99, index)
+    assert linked_list.all_values() == [1, 2, 3]
 
 
 def test_remove_empty():

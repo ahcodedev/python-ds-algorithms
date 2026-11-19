@@ -8,8 +8,11 @@ def test_copy_random_list():
     head.next.next = Node(3)
     head.next.next.random = head
     new_head = copy_random_list(head)
+    assert new_head is not None
     assert new_head.value == 1
+    assert new_head.next is not None
     assert new_head.next.value == 2
+    assert new_head.next.next is not None
     assert new_head.next.next.value == 3
     assert new_head.next.random == new_head
     assert new_head.next.next.random == new_head

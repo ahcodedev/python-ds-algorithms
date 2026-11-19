@@ -37,8 +37,8 @@ class AccountPool:
         """
         try:
             _, account = self.account_queue.get(block=True, timeout=self.timeout)
-        except queue.Empty:
-            raise self.AccountPoolTimeoutError(timeout=self.timeout)
+        except queue.Empty as e:
+            raise self.AccountPoolTimeoutError(timeout=self.timeout) from e
 
         self.outstanding_accounts.add(account)
         return account

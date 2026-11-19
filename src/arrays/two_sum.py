@@ -8,7 +8,7 @@ def two_sum(array: list[int], target: int) -> list[int]:
 
     Single pass using a value->index hash map of complements. Time: O(N).
     """
-    complements = dict()
+    complements = {}
 
     for index, number in enumerate(array):
         complement = target - number

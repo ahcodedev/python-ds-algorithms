@@ -53,7 +53,8 @@ def decode(data: TreeNode) -> NaryTreeNode | None:
 
         while sibling:
             node = NaryTreeNode(sibling.val, [])
-            parent.children.append(node)
+            if parent.children is not None:
+                parent.children.append(node)
             queue.append((node, sibling))
             sibling = sibling.right
 

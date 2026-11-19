@@ -17,7 +17,7 @@ class TrieWithFlatDictionary:
 
     def __init__(self):
         """Initialize your data structure here."""
-        self.nodes: dict[str:bool] = dict()
+        self.nodes: dict[str:bool] = {}
 
     def insert(self, word: str) -> None:
         """Inserts a word into the trie."""

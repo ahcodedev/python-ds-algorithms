@@ -8,8 +8,6 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "actionlint-py>=1.7.12.25",
-    "codespell>=2.4.3",
     "pip-audit>=2.10.1",
     "prek>=0.5.10",
     "pytest",
@@ -18,10 +16,15 @@ dev = [
     "ty>=0.0.96",
 ]
 
-[tool.codespell]
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+fail_under = 98
+show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--cov=src --cov-report=term-missing --cov-fail-under 98"
+testpaths = ["tests"]
 pythonpath = ["."]
 
 [tool.ruff]
@@ -32,8 +35,11 @@ select = ["B", "E", "F", "W", "I", "N", "PT", "D", "UP", "RUF", "SIM", "S", "C4"
 ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D107", "D211", "D203", "D213", "D400", "D401", "D415"]
 extend-ignore = ["E501"]  # Line too long (handled by formatter)
 
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["D", "S101"]  # Ignore docstring (D) and assert (S101) errors in tests
+"tests/*" = ["D", "S101", "PLR2004"]  # Ignore docstring (D) and assert (S101) errors in tests
 
 [tool.ruff.format]
 quote-style = "double"

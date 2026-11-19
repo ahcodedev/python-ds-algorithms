@@ -46,7 +46,8 @@ def walls_and_gates(rooms: list[list[int]]) -> list[list[int]]:
         for direction in directions:
             row = point[0] + direction[0]
             col = point[1] + direction[1]
-            if row < 0 or col < 0 or row >= height or col >= width or rooms[row][col] != 2147483647:
+            out_of_bounds = row < 0 or col < 0 or row >= height or col >= width
+            if out_of_bounds or rooms[row][col] != 2147483647:  # noqa: PLR2004
                 continue
             rooms[row][col] = rooms[point[0]][point[1]] + 1
             queue.appendleft((row, col))

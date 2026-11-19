@@ -7,7 +7,7 @@ def string_to_integer(string: str) -> int:
     Skip leading spaces and an optional minus sign, then parse and return the leading run of digits.
     """
     length = len(string)
-    numbers = set(list("1234567890"))
+    numbers = set("1234567890")
     positive = True
     start_index = -1
 

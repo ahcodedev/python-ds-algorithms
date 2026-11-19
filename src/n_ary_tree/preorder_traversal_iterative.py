@@ -19,7 +19,6 @@ def preorder_traversal_iterative(root: NaryTreeNode | None) -> list:
         values.append(node.value)
 
         if node.children:
-            for child in reversed(node.children):
-                stack.append(child)
+            stack.extend(reversed(node.children))
 
     return values

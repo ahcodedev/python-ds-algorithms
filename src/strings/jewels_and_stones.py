@@ -12,7 +12,7 @@ def jewels_and_stones(jewels: str, stones: str) -> int:
 
     Count occurrences of each stone, then sum the counts for stones that are also jewels.
     """
-    stone_count = dict()
+    stone_count = {}
 
     for stone in stones:
         if stone in stone_count:

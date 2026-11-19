@@ -74,8 +74,7 @@ class SinglyLinkedList[T]:
                 return
             current_node = current_node.next
             count += 1
-        if count < index:
-            IndexError("Index out of bounds")
+        raise IndexError("Index out of bounds")
 
     def remove(self, index: int) -> None:
         """Remove the node at index by linking its predecessor directly to its successor."""

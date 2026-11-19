@@ -28,12 +28,11 @@ def insert(head: SinglyLinkedListNode | None, value: int) -> SinglyLinkedListNod
             previous.next = new_node
             new_node.next = node
             return head
-        if previous.data > node.data:
-            if value >= previous.data or value <= node.data:
-                new_node = SinglyLinkedListNode(value)
-                previous.next = new_node
-                new_node.next = node
-                return head
+        if previous.data > node.data and (value >= previous.data or value <= node.data):
+            new_node = SinglyLinkedListNode(value)
+            previous.next = new_node
+            new_node.next = node
+            return head
 
         previous = node
         node = node.next

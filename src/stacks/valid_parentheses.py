@@ -19,8 +19,7 @@ def valid_parentheses(value: str) -> bool:
     for char in value:
         if char in closing_values:
             stack.append(char)
-        else:
-            if not stack or closing_values[stack.pop()] != char:
-                return False
+        elif not stack or closing_values[stack.pop()] != char:
+            return False
 
     return len(stack) == 0

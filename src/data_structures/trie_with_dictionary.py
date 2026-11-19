@@ -59,4 +59,4 @@ class TrieWithDictionary:
 
 class TrieNode:
     def __init__(self):
-        self.child_nodes: dict[str:TrieNode] = dict()
+        self.child_nodes: dict[str:TrieNode] = {}

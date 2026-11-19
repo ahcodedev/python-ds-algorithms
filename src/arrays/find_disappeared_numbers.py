@@ -14,12 +14,7 @@ def find_disappeared_numbers(nums: list[int]) -> list[int]:
     """O(N) time, O(N) space using a set of seen values."""
     unique_nums = set(nums)
     length = len(nums)
-    disappeared_nums = []
-
-    for num in range(1, length + 1):
-        if num not in unique_nums:
-            disappeared_nums.append(num)
-    return disappeared_nums
+    return [num for num in range(1, length + 1) if num not in unique_nums]
 
 
 def find_disappeared_numbers_ii(nums: list[int]) -> list[int]:
@@ -31,9 +26,4 @@ def find_disappeared_numbers_ii(nums: list[int]) -> list[int]:
         if nums[num_index] > 0:
             nums[num_index] *= -1
 
-    disappeared_nums = []
-
-    for index in range(length):
-        if nums[index] > 0:
-            disappeared_nums.append(index + 1)
-    return disappeared_nums
+    return [index + 1 for index in range(length) if nums[index] > 0]

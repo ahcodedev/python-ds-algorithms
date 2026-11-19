@@ -10,18 +10,21 @@ def remove_nth_from_end(head: SinglyLinkedListNode, nth: int) -> SinglyLinkedLis
     """
     dummy: SinglyLinkedListNode = SinglyLinkedListNode(0)
     dummy.next = head
-    previous: SinglyLinkedListNode = dummy
-    lead: SinglyLinkedListNode = dummy
+    previous: SinglyLinkedListNode | None = dummy
+    lead: SinglyLinkedListNode | None = dummy
 
     # Move lead forward
     for _ in range(nth + 1):
-        lead = lead.next
+        if lead:
+            lead = lead.next
 
     # Move through list until lead is None
     while lead:
-        previous = previous.next
+        if previous:
+            previous = previous.next
         lead = lead.next
 
     # Delete Node by relinking nodes or reassigning head
-    previous.next = previous.next.next
+    if previous and previous.next:
+        previous.next = previous.next.next
     return dummy.next

@@ -9,6 +9,6 @@
 ## Checklist
 
 - [ ] `just lint` passes
-- [ ] `just test` passes
+- [ ] `just coverage` passes
 - [ ] Tests added or updated for the change
 - [ ] `README.md` updated if needed

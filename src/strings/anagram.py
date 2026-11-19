@@ -25,7 +25,4 @@ def valid_anagram(val1: str, val2: str) -> bool:
         else:
             return False
 
-    for result in char_counter.values():
-        if result != 0:
-            return False
-    return True
+    return all(result == 0 for result in char_counter.values())

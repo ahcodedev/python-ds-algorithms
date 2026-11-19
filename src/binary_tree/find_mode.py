@@ -28,8 +28,6 @@ def find_mode(root: TreeNode) -> list:
     if not largest:
         return values
 
-    for element in counter:
-        if counter[element] == largest[0][1]:
-            values.append(element)
+    values.extend(element for element, count in counter.items() if count == largest[0][1])
 
     return values

@@ -33,9 +33,8 @@ def even_odd_tree(root: TreeNode | None):
             if even:
                 if not validate_even(node, last_value):
                     return False
-            else:
-                if not validate_odd(node, last_value):
-                    return False
+            elif not validate_odd(node, last_value):
+                return False
 
             last_value = node.val
 
@@ -52,15 +51,11 @@ def validate_even(node: TreeNode, last_value: int | None) -> bool:
     """Check that a node's value is odd and, on an even level, strictly greater than the previous value."""
     if node.val and node.val % 2 == 0:
         return False
-    if last_value and node.val <= last_value:
-        return False
-    return True
+    return not (last_value and node.val <= last_value)
 
 
 def validate_odd(node: TreeNode, last_value: int | None) -> bool:
     """Check that a node's value is even and, on an odd level, strictly less than the previous value."""
     if node.val % 2 != 0:
         return False
-    if last_value and node.val >= last_value:
-        return False
-    return True
+    return not (last_value and node.val >= last_value)
