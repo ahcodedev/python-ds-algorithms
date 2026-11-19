@@ -10,11 +10,11 @@ def peaks(numbers: list[int]) -> list[int]:
     length = len(numbers)
     peak_nums = []
 
-    if length < 3:
+    if length < 3:  # noqa: PLR2004
         return peak_nums
 
-    for index in range(1, length - 1):
-        if numbers[index - 1] < numbers[index] and numbers[index] > numbers[index + 1]:
-            peak_nums.append(numbers[index])
-
-    return peak_nums
+    return [
+        numbers[index]
+        for index in range(1, length - 1)
+        if numbers[index - 1] < numbers[index] > numbers[index + 1]
+    ]

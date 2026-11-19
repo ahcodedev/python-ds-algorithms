@@ -1,17 +1,17 @@
 from collections import deque
 
 
-class Node:
+class Node[T]:
     """Binary tree node with an extra `next` pointer to its right neighbor at the same level."""
 
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-        self.next = None
+    def __init__(self, value: T):
+        self.value: T = value
+        self.left: Node[T] | None = None
+        self.right: Node[T] | None = None
+        self.next: Node[T] | None = None
 
 
-def next_right_pointer(root: Node) -> Node:
+def next_right_pointer[T](root: Node[T] | None) -> Node[T] | None:
     """Next Right Pointer.
 
     You are given a perfect binary tree where all leaves are on the same level, and every parent has
@@ -23,14 +23,15 @@ def next_right_pointer(root: Node) -> Node:
     if not root:
         return root
 
-    level = deque([root])
+    level: deque[Node] = deque([root])
 
     while level:
         right = None
 
         for _ in range(len(level)):
             left = level.pop()
-            left.next = right
+            if left:
+                left.next = right
             right = left
             if left.right:
                 level.appendleft(left.right)

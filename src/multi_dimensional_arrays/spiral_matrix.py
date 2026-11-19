@@ -18,25 +18,21 @@ def spiral_matrix(matrix: list[list[int]]) -> list[int]:
 
     while srow <= opprow and scol <= oppcol:
         # Loop through top row, Offset opposite column for 0 based indexing
-        for col in range(scol, oppcol + 1):
-            output.append(matrix[srow][col])
+        output.extend(matrix[srow][col] for col in range(scol, oppcol + 1))
 
         # Offset first row since the value was added in the loop above
         # Offset opposite row to account for 0 based indexing
-        for row in range(srow + 1, opprow + 1):
-            output.append(matrix[row][oppcol])
+        output.extend(matrix[row][oppcol] for row in range(srow + 1, opprow + 1))
 
         # Shortcut for matrices that are just rows, columns
         if srow < opprow and scol < oppcol:
             # note: reversed ranges are offset by one on the end
             # Iterate backwards across bottom row
-            for col in range(oppcol - 1, scol, -1):
-                output.append(matrix[opprow][col])
+            output.extend(matrix[opprow][col] for col in range(oppcol - 1, scol, -1))
 
             # Iterate up left side
             # Do not offset range since first value was apart of the first row
-            for row in range(opprow, srow, -1):
-                output.append(matrix[row][scol])
+            output.extend(matrix[row][scol] for row in range(opprow, srow, -1))
 
         # Move start position in by 1 and end position in by 1
         srow += 1

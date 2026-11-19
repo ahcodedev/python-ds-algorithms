@@ -1,7 +1,7 @@
 class Node[T]:
     """A linked list node with an additional pointer that may reference any other node in the list."""
 
-    def __init__(self, value: int, next_node: "Node | None" = None, random: "Node | None" = None):
+    def __init__(self, value: int, next_node: Node | None = None, random: Node | None = None):
         self.value: int = value
         self.next: Node[T] | None = next_node
         self.random: Node[T] | None = random

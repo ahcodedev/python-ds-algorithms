@@ -11,6 +11,7 @@ def test_largest_number_at_least_twice_of_others():
     assert largest_number_at_least_twice_of_others([3, 0, 0, 2]) == -1
     assert largest_number_at_least_twice_of_others([0, 0, 1, 2]) == 3
     assert largest_number_at_least_twice_of_others([0]) == 0
+    assert largest_number_at_least_twice_of_others([]) == -1
 
 
 def test_largest_number_at_least_twice_of_others2():

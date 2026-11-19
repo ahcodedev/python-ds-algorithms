@@ -18,7 +18,8 @@ def test_tree_from_preorder_inorder():
     root.right.right = TreeNode(7)
 
     tree = tree_from_preorder_inorder(preorder, inorder)
+    assert tree
+
     tree_values = get_binary_tree_values(tree)
     expected_values = get_binary_tree_values(root)
-
     assert tree_values == expected_values

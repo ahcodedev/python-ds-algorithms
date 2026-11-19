@@ -5,6 +5,6 @@ class SinglyLinkedListNode[T]:
     next node in the list.
     """
 
-    def __init__(self, data: T | None = None, next_node: "SinglyLinkedListNode[T] | None" = None):
+    def __init__(self, data: T | None = None, next_node: SinglyLinkedListNode[T] | None = None):
         self.data: T | None = data
         self.next: SinglyLinkedListNode[T] | None = next_node

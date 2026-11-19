@@ -12,7 +12,7 @@ def single_number(nums: list[int]) -> int:
     if not nums:
         return 0
 
-    nums_dict = dict()
+    nums_dict = {}
 
     for num in nums:
         if num in nums_dict:
@@ -20,8 +20,8 @@ def single_number(nums: list[int]) -> int:
         else:
             nums_dict[num] = 1
 
-    for num in nums_dict:
-        if nums_dict[num] == 1:
+    for num, count in nums_dict.items():
+        if count == 1:
             return num
 
     return 0

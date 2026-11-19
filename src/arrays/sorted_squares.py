@@ -17,10 +17,7 @@ def sorted_squares(nums: list[int]) -> list[int]:
 
     # All Negative
     if first_positive is None:
-        result = []
-        for index in range(length - 1, -1, -1):
-            result.append(nums[index] * nums[index])
-        return result
+        return [nums[index] * nums[index] for index in range(length - 1, -1, -1)]
 
     # All Positive
     if first_positive == 0:

@@ -11,15 +11,18 @@ def test_init():
     assert not root.right
 
     root = BinaryTreeNode(1, left, right)
-    assert root.left and root.left.data == 2
-    assert root.right and root.right.data == 3
+    assert root.left
+    assert root.left.data == 2
+    assert root.right
+    assert root.right.data == 3
 
 
 def test_left_node():
     left = BinaryTreeNode(2)
     root = BinaryTreeNode(1)
     root.left = left
-    assert root.left and root.left.data == 2
+    assert root.left
+    assert root.left.data == 2
 
 
 def test_right_node():

@@ -1,7 +1,7 @@
 from src.data_structures.singly_linked_list_node import SinglyLinkedListNode
 
 
-def insert(head: SinglyLinkedListNode | None, value: int) -> SinglyLinkedListNode | None:
+def insert(head: SinglyLinkedListNode | None, value: int) -> SinglyLinkedListNode:
     """Insert into a Cyclic Sorted List.
 
     Given a node from a Circular Linked List which is sorted in ascending order, write a function to
@@ -23,17 +23,22 @@ def insert(head: SinglyLinkedListNode | None, value: int) -> SinglyLinkedListNod
     node = head.next
 
     while node:
-        if previous.data <= value <= node.data:
+        if node.data and previous.data and previous.data <= value <= node.data:
             new_node = SinglyLinkedListNode(value)
             previous.next = new_node
             new_node.next = node
             return head
-        if previous.data > node.data:
-            if value >= previous.data or value <= node.data:
-                new_node = SinglyLinkedListNode(value)
-                previous.next = new_node
-                new_node.next = node
-                return head
+
+        if (
+            node.data
+            and previous.data
+            and previous.data > node.data
+            and (value >= previous.data or value <= node.data)
+        ):
+            new_node = SinglyLinkedListNode(value)
+            previous.next = new_node
+            new_node.next = node
+            return head
 
         previous = node
         node = node.next

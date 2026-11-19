@@ -16,10 +16,7 @@ def minimum_subarray_length(target: int, numbers: list[int]) -> int:
     for index, _ in enumerate(numbers):
         total += numbers[index]
         while total >= target:
-            if answer:
-                answer = min(answer, index + 1 - left)
-            else:
-                answer = index + 1 - left
+            answer = min(answer, index + 1 - left) if answer else index + 1 - left
             total -= numbers[left]
             left += 1
 

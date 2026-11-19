@@ -20,14 +20,14 @@ class Node:
     def __init__(
         self,
         val: int,
-        previous_node: "Node" | None,
-        next_node: "Node" | None,
-        child_node: "Node" | None,
+        previous_node: Node | None,
+        next_node: Node | None,
+        child_node: Node | None,
     ):
         self.data: int = val
-        self.previous: "Node" | None = previous_node
-        self.next: "Node" | None = next_node
-        self.child: "Node" | None = child_node
+        self.previous: Node | None = previous_node
+        self.next: Node | None = next_node
+        self.child: Node | None = child_node
 
 
 def flatten(head: Node) -> Node:
@@ -58,7 +58,7 @@ def flatten(head: Node) -> Node:
     return head
 
 
-def flatten_iterative(head: Node) -> Node:
+def flatten_iterative(head: Node | None) -> Node | None:
     """Use an explicit stack of nodes to flatten the list without recursion."""
     if not head:
         return head
@@ -66,7 +66,7 @@ def flatten_iterative(head: Node) -> Node:
     dummy = Node(0, None, head, None)
     previous = dummy
 
-    stack = list()
+    stack = []
     stack.append(head)
 
     while stack:
@@ -82,5 +82,8 @@ def flatten_iterative(head: Node) -> Node:
             current.child = None
 
         previous = current
+
+    if not dummy.next:
+        return None
     dummy.next.previous = None
     return dummy.next

@@ -11,7 +11,7 @@ def third_max(nums: list[int]) -> int:
     """
     unique_nums = set(nums)
 
-    if len(unique_nums) < 3:
+    if len(unique_nums) < 3:  # noqa: PLR2004
         return max(unique_nums)
 
     unique_nums.remove(max(unique_nums))  # 1st

@@ -12,9 +12,9 @@ class TrieWithDictionary:
          /  \\
         a    b
        /    /  \\
-     am    ba  be
+     am    bo  be
           /
-        bad
+        bot
 
     This implementation backs each node's children with a dictionary (hash table) keyed by the prefix
     string represented so far, rather than a fixed-size array. This avoids reserving space for unused
@@ -30,7 +30,7 @@ class TrieWithDictionary:
         current_trie = self.head
         for index in range(1, len(word) + 1):
             if word[:index] in current_trie.child_nodes:
-                current_trie = current_trie.child_nodes.get(word[:index])
+                current_trie = current_trie.child_nodes[word[:index]]
             else:
                 child_node = TrieNode()
                 current_trie.child_nodes.setdefault(word[:index], child_node)
@@ -41,7 +41,7 @@ class TrieWithDictionary:
         current_trie = self.head
         for index in range(1, len(word) + 1):
             if word[:index] in current_trie.child_nodes:
-                current_trie = current_trie.child_nodes.get(word[:index])
+                current_trie = current_trie.child_nodes[word[:index]]
             else:
                 return False
         return len(current_trie.child_nodes) == 0
@@ -51,7 +51,7 @@ class TrieWithDictionary:
         current_trie = self.head
         for index in range(1, len(prefix) + 1):
             if prefix[:index] in current_trie.child_nodes:
-                current_trie = current_trie.child_nodes.get(prefix[:index])
+                current_trie = current_trie.child_nodes[prefix[:index]]
             else:
                 return False
         return True
@@ -59,4 +59,4 @@ class TrieWithDictionary:
 
 class TrieNode:
     def __init__(self):
-        self.child_nodes: dict[str:TrieNode] = dict()
+        self.child_nodes: dict[str, TrieNode] = {}

@@ -1,4 +1,5 @@
 from html.parser import HTMLParser
+from pathlib import Path
 
 
 class HTMLValidator:
@@ -18,7 +19,7 @@ class HTMLValidator:
         parser = TagChecker()
 
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            with Path(path).open(encoding="utf-8") as f:
                 while chunk := f.read(64000):
                     parser.feed(chunk)
             parser.close()

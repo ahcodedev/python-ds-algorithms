@@ -8,6 +8,7 @@ def test_init():
 
     root = BinaryTreeNode(1)
     tree = BinaryTree(root)
+    assert tree.root
     assert tree.root.data == 1
 
 

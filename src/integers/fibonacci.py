@@ -8,10 +8,10 @@ Example: `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...]`
 """
 
 from collections.abc import Generator
-from functools import lru_cache
+from functools import cache
 
 
-def fibonacci(number: int, memo: dict[int, int] = None) -> int:
+def fibonacci(number: int, memo: dict[int, int] | None = None) -> int:
     """Generate the fibonacci number for n
 
     Uses a dictionary to store previously computed values
@@ -31,7 +31,7 @@ def fibonacci(number: int, memo: dict[int, int] = None) -> int:
     return memo[number]
 
 
-@lru_cache(maxsize=None)
+@cache
 def fibonacci2(number: int) -> int:
     """Generate the fibonacci number for n
 
@@ -42,7 +42,7 @@ def fibonacci2(number: int) -> int:
     :return: Fibonacci number
 
     """
-    if number < 2:
+    if number < 2:  # noqa: PLR2004
         return number
     return fibonacci2(number - 1) + fibonacci2(number - 2)
 
@@ -81,7 +81,7 @@ def fibonacci_with_array(number: int, memo=None) -> int:
     return fibonacci_with_array(number, memo)
 
 
-def fibonacci_sequence(number: int) -> Generator[int, None, None]:
+def fibonacci_sequence(number: int) -> Generator[int]:
     """Generate the fibonacci number for n
 
     Utilizes a generator

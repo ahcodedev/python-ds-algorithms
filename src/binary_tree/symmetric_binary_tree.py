@@ -28,6 +28,9 @@ def symmetric_binary_tree(root: TreeNode | None) -> bool:
 
     Compares each level from the outside in, mirroring left and right positions, to check for symmetry.
     """
+    if not root:
+        return True
+
     level = [root]
 
     while level:

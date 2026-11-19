@@ -20,8 +20,7 @@ def postorder_traversal_iterative[T](root: NaryTreeNode[T] | None) -> list[T]:
     while stack:
         node = stack.pop()
         if node.children:
-            for child in node.children:
-                stack.append(child)
+            stack.extend(node.children)
         values.appendleft(node.value)
 
     return list(values)

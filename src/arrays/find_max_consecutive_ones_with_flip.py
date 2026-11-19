@@ -16,8 +16,7 @@ def find_max_consecutive_ones_with_flip(nums: list[int]) -> int:
             ones += 1
         elif zero != -1:
             total = ones + 1
-            if total > highest:
-                highest = total
+            highest = max(highest, total)
             ones = index - zero - 1
             zero = index
         else:

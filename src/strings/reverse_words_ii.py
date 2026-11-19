@@ -23,7 +23,7 @@ def reverse_words_ii(sentence: list[str]):
     for index in range(length):
         if left_index is None and sentence[index] != " ":
             left_index = index
-        if sentence[index] == " ":
+        if sentence[index] == " " and left_index is not None:
             reverse(sentence, left_index, index - 1)
             left_index = None
 

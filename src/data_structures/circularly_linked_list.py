@@ -33,7 +33,8 @@ class CircularlyLinkedList[T]:
         node = self.head
 
         while node:
-            values.append(node.data)
+            if node.data:
+                values.append(node.data)
             node = node.next
             if node == self.head:
                 break

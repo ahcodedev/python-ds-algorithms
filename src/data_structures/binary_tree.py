@@ -18,11 +18,11 @@ class BinaryTree:
     Further Reading - https://en.wikipedia.org/wiki/Binary_tree
     """
 
-    def __init__(self, root: BinaryTreeNode = None):
-        self.__root = root
+    def __init__(self, root: BinaryTreeNode | None = None):
+        self.__root: BinaryTreeNode | None = root
 
     @property
-    def root(self) -> BinaryTreeNode:
+    def root(self) -> BinaryTreeNode | None:
         return self.__root
 
     @root.setter

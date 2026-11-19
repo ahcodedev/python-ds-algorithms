@@ -24,10 +24,7 @@ class MinHeap:
         return len(self.list)
 
     def values(self):
-        values = []
-        for value in self.list:
-            values.append(value)
-        return values
+        return self.list.copy()
 
     def _get_parent(self, idx):
         return (idx - 1) // 2

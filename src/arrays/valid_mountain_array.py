@@ -9,7 +9,7 @@ def valid_mountain_array(arr: list[int]) -> bool:
 
     Walk up the increasing run, then confirm a strictly decreasing run finishes the array.
     """
-    if len(arr) <= 2:
+    if len(arr) <= 2:  # noqa: PLR2004
         return False
 
     index = 1

@@ -9,7 +9,7 @@ there are no such elements, return -1.
 
 def first_duplicate(array: list[int]) -> int:
     """Count occurrences with a dict, then return the first value whose count exceeds one."""
-    number_counter = dict()
+    number_counter = {}
     for value in array:
         if value in number_counter:
             number_counter[value] += 1

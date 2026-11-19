@@ -12,9 +12,9 @@ class TrieWithArray[T]:
          /  \\
         a    b
        /    /  \\
-     am    ba  be
+     am    bo  be
           /
-        bad
+        bot
 
     This implementation backs each node's children with a fixed-size array of 26 slots (one per lowercase
     letter a-z), indexed by `ord(char) - ord("a")`. Lookups are O(1) per character since the child slot is

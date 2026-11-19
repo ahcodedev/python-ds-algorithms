@@ -10,11 +10,8 @@ def find_smallest_positive_integer(arr: list[int]) -> int:
     smallest = -1
 
     for i in range(len(arr)):
-        if arr[i] > 0:
-            if smallest == -1:
-                smallest = arr[i]
-            elif arr[i] < smallest:
-                smallest = arr[i]
+        if arr[i] > 0 and (smallest == -1 or arr[i] < smallest):
+            smallest = arr[i]
 
     if smallest == -1:
         return 0

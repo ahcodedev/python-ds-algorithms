@@ -1,4 +1,4 @@
-def find_max_consecutive_ones(nums: list[int]) -> int:
+def find_max_consecutive_ones(nums: list[int] | None) -> int:
     """Find Max Consecutive Ones.
 
     You are given a binary array nums; return the maximum number of consecutive 1's in the array.

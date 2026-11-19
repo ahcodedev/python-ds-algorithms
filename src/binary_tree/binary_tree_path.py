@@ -27,11 +27,11 @@ class TreeNode:
 
     def __init__(self, x):
         self.val = x
-        self.left = None
-        self.right = None
+        self.left: TreeNode | None = None
+        self.right: TreeNode | None = None
 
 
-def binary_tree_paths(root_node: TreeNode) -> [str]:
+def binary_tree_paths(root_node: TreeNode | None) -> list[str]:
     """Collect every root-to-leaf path into a list of `"parent->child"` strings."""
     paths = []
     if not root_node:
@@ -39,7 +39,7 @@ def binary_tree_paths(root_node: TreeNode) -> [str]:
     return get_path(root_node, "", paths)
 
 
-def get_path(node: TreeNode, path: str, paths: [str]) -> [str]:
+def get_path(node: TreeNode, path: str, paths: list[str]) -> list[str]:
     """Recurse left and right, appending a completed path string whenever a leaf is reached."""
     new_paths = list(paths)
 

@@ -1,7 +1,7 @@
 from src.binary_tree.tree_node import TreeNode
 
 
-def has_path_sum(root: TreeNode, target: int) -> bool:
+def has_path_sum(root: TreeNode | None, target: int) -> bool:
     """Has Path Sum.
 
     Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up

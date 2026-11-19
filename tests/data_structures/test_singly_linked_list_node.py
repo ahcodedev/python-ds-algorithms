@@ -12,4 +12,5 @@ def test_singly_linked_list_node():
 
     node = SinglyLinkedListNode(1, SinglyLinkedListNode(2))
     assert node.data == 1
+    assert node.next
     assert node.next.data == 2

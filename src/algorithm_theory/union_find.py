@@ -3,7 +3,7 @@ class UnionFind:
         self.roots = []
 
     def add_edges(self, n: int, edges: list[tuple[int, int]]):
-        self.roots = [number for number in range(n)]
+        self.roots = list(range(n))
         for edge in edges:
             a, b = edge
             self.union(a, b)
@@ -24,7 +24,7 @@ class UnionFind:
         if root_a is not None and root_b is not None:
             self.roots[root_a] = root_b
 
-    def find(self, node1: int) -> None | int:
+    def find(self, node1: int) -> int | None:
         stack = [node1]
 
         while stack:

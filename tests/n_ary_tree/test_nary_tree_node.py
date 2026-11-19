@@ -8,4 +8,6 @@ def test_nary_tree_node():
 
     node = NaryTreeNode(1, [NaryTreeNode(2)])
     assert node.value == 1
+    assert node.children is not None
+    assert len(node.children) == 1
     assert node.children[0].value == 2

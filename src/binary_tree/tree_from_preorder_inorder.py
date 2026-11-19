@@ -1,7 +1,7 @@
 from src.binary_tree.tree_node import TreeNode
 
 
-def tree_from_preorder_inorder(preorder: list[int], inorder: list[int]) -> TreeNode:
+def tree_from_preorder_inorder(preorder: list[int] | None, inorder: list[int]) -> TreeNode | None:
     r"""Tree From Preorder and Inorder Traversal.
 
     Given preorder and inorder traversal of a tree, construct the binary tree.

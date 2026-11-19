@@ -1,4 +1,4 @@
-def rotate_image_90_degrees(matrix: [[int]]) -> [[int]]:
+def rotate_image_90_degrees(matrix: list[list[int]]) -> list[list[int]]:
     """Rotate Image 90 Degrees Clockwise.
 
     You are given an n x n 2D matrix that represents an image. Rotate the image by 90 degrees

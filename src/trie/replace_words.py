@@ -15,23 +15,19 @@ def replace_words(dictionary: list[str], sentence: str) -> str:
     `"the cat was rat by the bat"`
     """
     words = sentence.split(" ")
-    updated_sentence: list[str] = []
     prefix_trie = TrieNode()
 
     for word in dictionary:
         prefix_trie.insert(word)
 
-    for word in words:
-        updated_sentence.append(prefix_trie.replace_word(word))
-
-    return " ".join(updated_sentence)
+    return " ".join(prefix_trie.replace_word(word) for word in words)
 
 
 class TrieNode:
     """A prefix trie node used to store dictionary roots and match sentence words against them."""
 
     def __init__(self):
-        self.nodes: dict[str, TrieNode] = dict()
+        self.nodes: dict[str, TrieNode] = {}
 
     def insert(self, word: str) -> None:
         """Insert word into the trie, stopping early if a shorter existing root already covers it."""

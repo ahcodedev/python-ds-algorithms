@@ -3,9 +3,15 @@ from src.binary_tree.tree_node import TreeNode
 
 
 def test_even_odd_tree():
+    assert not even_odd_tree(None)
+
     root = TreeNode(1)
     assert even_odd_tree(root)
     assert not even_odd_tree(TreeNode(2))
+
+    root.left = TreeNode(10)
+    root.right = TreeNode(3)
+    assert not even_odd_tree(root)
 
     root.left = TreeNode(10)
     root.right = TreeNode(4)

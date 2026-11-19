@@ -12,4 +12,4 @@ def pangram(string: str) -> bool:
         if char.isalpha():
             alpha_set.add(char.lower())
 
-    return len(alpha_set) == 26
+    return len(alpha_set) == 26  # noqa: PLR2004
